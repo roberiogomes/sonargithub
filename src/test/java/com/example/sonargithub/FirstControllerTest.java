@@ -9,7 +9,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class FirstControllerTest {
+class FirstControllerTest {
     @LocalServerPort
     private int port;
 
@@ -17,7 +17,7 @@ public class FirstControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void getTimeShoudReturnCurretTime() throws Exception {
+    void getTimeShoudReturnCurretTime() throws Exception {
         assertThat(restTemplate.getForObject("http://localhost:" + port + "/time", String.class)).contains("ZoneInfo");
     }
 }
