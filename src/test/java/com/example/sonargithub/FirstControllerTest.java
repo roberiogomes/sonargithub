@@ -18,6 +18,8 @@ class FirstControllerTest {
 
     @Test
     void getTimeShoudReturnCurretTime() throws Exception {
-        assertThat(restTemplate.getForObject("http://localhost:" + port + "/time", String.class)).contains("ZoneInfo");
+        final String uri = "http://localhost:" + port + "/time";
+
+        assertThat(restTemplate.getForObject(uri, String.class)).contains("ZoneInfo");
     }
 }
